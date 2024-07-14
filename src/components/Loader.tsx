@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin"; // Import MotionPathPlugin
+import { useGSAP } from "@gsap/react";
 
 // Register GSAP plugins
 gsap.registerPlugin(MotionPathPlugin);
@@ -8,7 +9,7 @@ gsap.registerPlugin(MotionPathPlugin);
 const InfiniteScrollLoader = () => {
   const circlesRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  useEffect(() => {
+  useGSAP(() => {
     const circles = circlesRef.current.filter((el) => el !== null);
 
     // GSAP animation timeline

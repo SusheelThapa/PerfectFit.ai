@@ -1,15 +1,16 @@
-import { useRef, useEffect } from "react";
-import { TbClothesRack } from "react-icons/tb";
-import hero from "../assets/images/hero.png";
-import { Link } from "react-router-dom";
 import gsap from "gsap";
+import { useRef } from "react";
+import hero from "../assets/images/hero.png";
+import { TbClothesRack } from "react-icons/tb";
+import { Link } from "react-router-dom";
+import { useGSAP } from "@gsap/react";
 
 const Hero = () => {
   const textRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLAnchorElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     // GSAP animations
     const tl = gsap.timeline();
 
