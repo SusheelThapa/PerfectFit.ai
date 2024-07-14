@@ -1,9 +1,10 @@
-import { useRef, useState, FormEvent } from "react";
+import { useRef, useState, useEffect, FormEvent } from "react";
 import {
   IoBodyOutline,
   IoCalendarOutline,
   IoPersonOutline,
 } from "react-icons/io5";
+import gsap from "gsap";
 import Loader from "./Loader";
 
 interface TailorYourFitProps {
@@ -14,7 +15,26 @@ const TailorYourFit: React.FC<TailorYourFitProps> = ({ onSizeReceived }) => {
   const weightRef = useRef<HTMLInputElement>(null);
   const ageRef = useRef<HTMLInputElement>(null);
   const heightRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const headerRef = useRef<HTMLHeadingElement>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    // GSAP animations for header and form elements
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      headerRef.current,
+      { autoAlpha: 0, y: -50 },
+      { duration: 1, autoAlpha: 1, y: 0, ease: "power2.out" }
+    )
+    .fromTo(
+      formRef.current,
+      { autoAlpha: 0, y: 50 },
+      { duration: 1, autoAlpha: 1, y: 0, ease: "power2.out" },
+      "-=0.5"
+    );
+  }, []);
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -45,10 +65,11 @@ const TailorYourFit: React.FC<TailorYourFitProps> = ({ onSizeReceived }) => {
 
   return (
     <div className="flex flex-col justify-center items-center h-[80vh] bg-white p-6">
-      <h1 className="text-4xl font-bold text-[#F2544B] mb-8 text-center tracking-wide">
+      <h1 ref={headerRef} className="text-4xl font-bold text-[#F2544B] mb-8 text-center tracking-wide">
         Tailored to You, Every Time
       </h1>
       <form
+        ref={formRef}
         className="mt-6 space-y-6 w-2/5 bg-white p-6 rounded-lg"
         onSubmit={handleFormSubmit}
       >

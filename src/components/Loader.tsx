@@ -67,7 +67,7 @@ const InfiniteScrollLoader = () => {
           ></div>
         ))}
       </div>
-      <div className="mt-6 text-6xl font-black text-[#f36760] z-10">
+      <div className="mt-28 text-7xl font-black text-[#f36760] z-10">
         Loading...
       </div>
     </div>

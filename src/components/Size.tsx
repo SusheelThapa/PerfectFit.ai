@@ -21,11 +21,10 @@ const Size: React.FC<SizeProps> = ({ size, onFindAnotherFit }) => {
         {
           scaleX: 0,
           scaleY: 0,
-          backgroundColor: "#ffffff",
           color: "white",
         },
         {
-          duration: 1.5,
+          duration: 2,
           scaleX: 1,
           scaleY: 1,
           backgroundColor: "rgba(242, 84, 75,0.05)",
