@@ -1,14 +1,19 @@
-import { useRef, FormEvent } from "react";
+import { useRef, useState, FormEvent } from "react";
 import {
   IoBodyOutline,
   IoCalendarOutline,
   IoPersonOutline,
 } from "react-icons/io5";
 
-const TailorYourFit: React.FC = () => {
+interface TailorYourFitProps {
+  onSizeReceived: (size: string) => void;
+}
+
+const TailorYourFit: React.FC<TailorYourFitProps> = ({ onSizeReceived }) => {
   const weightRef = useRef<HTMLInputElement>(null);
   const ageRef = useRef<HTMLInputElement>(null);
   const heightRef = useRef<HTMLInputElement>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -17,15 +22,29 @@ const TailorYourFit: React.FC = () => {
     const height = heightRef.current?.value;
 
     if (weight && age && height) {
+      setLoading(true);
       try {
-        // API Call
+        // Simulate an API call
+        setTimeout(() => {
+          setLoading(false);
+          onSizeReceived("XXL"); // Simulated response
+        }, 2000);
       } catch (error) {
         console.error("Error:", error);
+        setLoading(false);
       }
     } else {
       console.error("All fields are required");
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-[80vh]">
+        <div className="loader"></div> {/* You can use a CSS loader here */}
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col justify-center items-center h-[80vh] bg-white p-6">
@@ -37,10 +56,7 @@ const TailorYourFit: React.FC = () => {
         onSubmit={handleFormSubmit}
       >
         <div className="flex flex-col space-y-2">
-          <label
-            htmlFor="weight"
-            className="text-lg font-semibold tracking-wider text-gray-700"
-          >
+          <label htmlFor="weight" className="text-lg font-medium text-gray-700">
             Weight (kg)
           </label>
           <div className="relative flex items-center">
@@ -50,17 +66,14 @@ const TailorYourFit: React.FC = () => {
               name="weight"
               type="number"
               required
-              className="w-full pl-10 pr-3 py-3 text-base bg-gray-50 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F2544B]"
+              className="w-full pl-10 pr-3 py-3 text-sm border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F2544B]"
               placeholder="Enter your weight"
               ref={weightRef}
             />
           </div>
         </div>
         <div className="flex flex-col space-y-2">
-          <label
-            htmlFor="age"
-            className="text-lg font-semibold tracking-wider text-gray-700"
-          >
+          <label htmlFor="age" className="text-lg font-medium text-gray-700">
             Age
           </label>
           <div className="relative flex items-center">
@@ -70,17 +83,14 @@ const TailorYourFit: React.FC = () => {
               name="age"
               type="number"
               required
-              className="w-full pl-10 pr-3 py-3 text-base bg-gray-50 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F2544B]"
+              className="w-full pl-10 pr-3 py-3 text-sm border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F2544B]"
               placeholder="Enter your age"
               ref={ageRef}
             />
           </div>
         </div>
         <div className="flex flex-col space-y-2">
-          <label
-            htmlFor="height"
-            className="text-lg font-semibold tracking-wider text-gray-700"
-          >
+          <label htmlFor="height" className="text-lg font-medium text-gray-700">
             Height (cm)
           </label>
           <div className="relative flex items-center">
@@ -90,7 +100,7 @@ const TailorYourFit: React.FC = () => {
               name="height"
               type="number"
               required
-              className="w-full pl-10 pr-3 py-3 text-base bg-gray-50 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F2544B]"
+              className="w-full pl-10 pr-3 py-3 text-sm border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F2544B]"
               placeholder="Enter your height"
               ref={heightRef}
             />
