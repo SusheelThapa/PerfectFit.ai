@@ -3,6 +3,7 @@ import LandingPage from "../pages/LandingPage";
 import TailorYourFitPage from "../pages/TailorYourFitPage";
 import About from "../pages/About";
 import ContactUs from "../pages/ContactUs";
+import FAQ from "../pages/FAQ";
 
 const AppRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const AppRoutes = () => {
         <Route path="/tailor-your-fit" element={<TailorYourFitPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
     </Router>
   );

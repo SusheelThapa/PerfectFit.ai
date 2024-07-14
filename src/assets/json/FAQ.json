@@ -1,0 +1,28 @@
+{
+  "faq_data": [
+    {
+      "question": "How does PerfectFit.ai work?",
+      "answer": "PerfectFit.ai uses advanced algorithms to recommend clothing sizes based on your height and weight, ensuring a perfect fit."
+    },
+    {
+      "question": "Why should I use PerfectFit.ai?",
+      "answer": "PerfectFit.ai eliminates the guesswork involved in online shopping by providing accurate size recommendations, reducing the hassle of returns and exchanges."
+    },
+    {
+      "question": "Is PerfectFit.ai accurate?",
+      "answer": "Yes, PerfectFit.ai leverages machine learning to continuously improve size recommendations based on user feedback and data."
+    },
+    {
+      "question": "How can I contact support?",
+      "answer": "You can reach our support team at support@perfectfit.ai or call us at +977-9812345678."
+    },
+    {
+      "question": "What are the benefits of using PerfectFit.ai?",
+      "answer": "Using PerfectFit.ai ensures that every clothing purchase fits perfectly, enhancing your online shopping experience."
+    },
+    {
+      "question": "Do you offer a guarantee on size recommendations?",
+      "answer": "We strive for accuracy in our size recommendations. If you have any issues, our support team is ready to assist you."
+    }
+  ]
+}
