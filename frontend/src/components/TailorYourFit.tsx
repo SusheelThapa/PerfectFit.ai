@@ -1,11 +1,13 @@
-import { useRef, useState, useEffect, FormEvent } from "react";
+import { useRef, useState, FormEvent } from "react";
 import {
   IoBodyOutline,
   IoCalendarOutline,
   IoPersonOutline,
 } from "react-icons/io5";
 import gsap from "gsap";
+import axios from "axios"; // Import Axios
 import Loader from "./Loader";
+import { useGSAP } from "@gsap/react";
 
 interface TailorYourFitProps {
   onSizeReceived: (size: string) => void;
@@ -19,7 +21,7 @@ const TailorYourFit: React.FC<TailorYourFitProps> = ({ onSizeReceived }) => {
   const headerRef = useRef<HTMLHeadingElement>(null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  useGSAP(() => {
     // GSAP animations for header and form elements
     const tl = gsap.timeline();
 
@@ -41,14 +43,19 @@ const TailorYourFit: React.FC<TailorYourFitProps> = ({ onSizeReceived }) => {
     const age = ageRef.current?.value;
     const height = heightRef.current?.value;
 
+    console.log({ weight, age, height });
     if (weight && age && height) {
       setLoading(true);
       try {
-        // Simulate an API call
-        setTimeout(() => {
-          setLoading(true);
-          onSizeReceived("XXL"); // Simulated response
-        }, 4000);
+        const response = await axios.post("http://localhost:3000/predict", {
+          weight,
+          age,
+          height,
+        });
+
+        const { predicted_value } = response.data;
+        onSizeReceived(predicted_value);
+        setLoading(false);
       } catch (error) {
         console.error("Error:", error);
         setLoading(false);

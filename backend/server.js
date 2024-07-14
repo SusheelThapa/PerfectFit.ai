@@ -2,20 +2,27 @@
 
 const express = require('express');
 const axios = require('axios');
-const morgan = require('morgan'); // Import morgan
-require('dotenv').config(); // Load environment variables from .env file
+const morgan = require('morgan');
+const cors = require('cors'); // Import cors
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const mindsdbApiUrl = process.env.MINDSDB_API_URL;
 
+// Use morgan middleware for logging requests
 app.use(morgan('dev'));
+
+// Use cors middleware to allow requests from all origins
+app.use(cors());
 
 app.use(express.json());
 
+// POST endpoint for predicting cloth sizes
 app.post('/predict', async (req, res) => {
     try {
-        const { weight, age, height } = req.body.data[0];
+        console.log(req.body)
+        const { weight, age, height } = req.body;
 
         const response = await axios.post(mindsdbApiUrl, {
             data: [
