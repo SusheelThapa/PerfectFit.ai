@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Header from "../components/Header";
 import { faq_data } from "../assets/json/FAQ.json";
 import { gsap } from "gsap";
