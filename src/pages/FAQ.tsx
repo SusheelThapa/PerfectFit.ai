@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Header from "../components/Header";
 import { faq_data } from "../assets/json/FAQ.json";
 import { gsap } from "gsap";
@@ -9,6 +9,7 @@ const FAQ: React.FC = () => {
   const [faq] = useState<{ question: string; answer: string }[]>(faq_data);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const answersRef = useRef<Array<HTMLDivElement | null>>([]);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
 
   useGSAP(() => {
     // Animate elements when component mounts
@@ -17,6 +18,14 @@ const FAQ: React.FC = () => {
       y: 20,
       stagger: 0.2,
       duration: 0.5,
+      ease: "power3.out",
+    });
+
+    // Animate the title
+    gsap.from(titleRef.current, {
+      opacity: 0,
+      y: -50,
+      duration: 1,
       ease: "power3.out",
     });
   }, []);
@@ -54,7 +63,10 @@ const FAQ: React.FC = () => {
       <Header />
       <div className="mt-[1rem]">
         <div className="bg-white p-8">
-          <h1 className="text-5xl font-bold text-center mb-8 my-10 text-[#F2544B] tracking-wider">
+          <h1
+            ref={titleRef}
+            className="text-5xl font-bold text-center mb-8 my-10 text-[#F2544B] tracking-wider"
+          >
             Frequently Asked Questions
           </h1>
           <div

@@ -1,9 +1,32 @@
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
 import Header from "../components/Header";
 
 const ContactUs = () => {
+  useGSAP(() => {
+    // Animation for the form and icons
+    gsap.from("#contact-us form", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      delay: 0.5,
+      ease: "power3.out",
+    });
+
+    gsap.from("#contact-us .flex-col", {
+      opacity: 0,
+      x: -50,
+      stagger: 0.2,
+      duration: 1,
+      delay: 0.8,
+      ease: "power3.out",
+    });
+  }, []);
+
   return (
     <div className="px-24 py-6 border-2 h-screen">
       <Header />
