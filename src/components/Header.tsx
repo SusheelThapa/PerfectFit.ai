@@ -14,7 +14,7 @@ const Header = () => {
     tl.fromTo(
       headerRef.current,
       { autoAlpha: 0, y: -100 },
-      { duration: .5, autoAlpha: 1, y: 0, ease: "power2.out" }
+      { duration: 0.5, autoAlpha: 1, y: 0, ease: "power2.out" }
     );
 
     // GSAP animation for navigation items
@@ -43,13 +43,17 @@ const Header = () => {
         <ul className="flex gap-8 text-lg">
           {["Home", "About", "How it works?", "Contact", "FAQ"].map(
             (item, index) => (
-              <li
+              <Link
                 key={index}
-                ref={(el) => (navItemsRef.current[index] = el)}
-                className="pl-10 cursor-pointer font-medium hover:text-[#F2544B]"
+                to={`/${item.toLowerCase().replace(/ /g, "-")}`}
               >
-                {item}
-              </li>
+                <li
+                  ref={(el) => (navItemsRef.current[index] = el)}
+                  className="pl-10 cursor-pointer font-medium hover:text-[#F2544B]"
+                >
+                  {item}
+                </li>
+              </Link>
             )
           )}
         </ul>

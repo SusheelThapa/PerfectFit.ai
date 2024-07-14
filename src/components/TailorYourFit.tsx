@@ -27,8 +27,7 @@ const TailorYourFit: React.FC<TailorYourFitProps> = ({ onSizeReceived }) => {
       headerRef.current,
       { autoAlpha: 0, y: -50 },
       { duration: 1, autoAlpha: 1, y: 0, ease: "power2.out" }
-    )
-    .fromTo(
+    ).fromTo(
       formRef.current,
       { autoAlpha: 0, y: 50 },
       { duration: 1, autoAlpha: 1, y: 0, ease: "power2.out" },
@@ -65,7 +64,10 @@ const TailorYourFit: React.FC<TailorYourFitProps> = ({ onSizeReceived }) => {
 
   return (
     <div className="flex flex-col justify-center items-center h-[80vh] bg-white p-6">
-      <h1 ref={headerRef} className="text-4xl font-bold text-[#F2544B] mb-8 text-center tracking-wide">
+      <h1
+        ref={headerRef}
+        className="text-4xl font-bold text-[#F2544B] mb-8 text-center tracking-wide"
+      >
         Tailored to You, Every Time
       </h1>
       <form
