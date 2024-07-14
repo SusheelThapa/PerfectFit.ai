@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "../pages/LandingPage";
 import TailorYourFitPage from "../pages/TailorYourFitPage";
 import About from "../pages/About";
+import ContactUs from "../pages/ContactUs";
 
 const AppRoutes = () => {
   return (
@@ -11,6 +12,7 @@ const AppRoutes = () => {
         <Route path="/home" element={<LandingPage />} />
         <Route path="/tailor-your-fit" element={<TailorYourFitPage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </Router>
   );
