@@ -4,6 +4,7 @@ import {
   IoCalendarOutline,
   IoPersonOutline,
 } from "react-icons/io5";
+import Loader from "./Loader";
 
 interface TailorYourFitProps {
   onSizeReceived: (size: string) => void;
@@ -28,7 +29,7 @@ const TailorYourFit: React.FC<TailorYourFitProps> = ({ onSizeReceived }) => {
         setTimeout(() => {
           setLoading(false);
           onSizeReceived("XXL"); // Simulated response
-        }, 2000);
+        }, 4000);
       } catch (error) {
         console.error("Error:", error);
         setLoading(false);
@@ -39,11 +40,7 @@ const TailorYourFit: React.FC<TailorYourFitProps> = ({ onSizeReceived }) => {
   };
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center h-[80vh]">
-        <div className="loader"></div> {/* You can use a CSS loader here */}
-      </div>
-    );
+    return <Loader />;
   }
 
   return (
