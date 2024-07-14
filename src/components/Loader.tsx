@@ -15,39 +15,17 @@ const InfiniteScrollLoader = () => {
     const tl = gsap.timeline({ repeat: -1, yoyo: false });
 
     // Initial state
-    gsap.set(circles, { autoAlpha: 1, scale: 1 });
-
-    // Define the path for the infinity symbol
-    const infinityPath = [
-      { x: 0, y: 0 },
-      { x: 0, y: 80 },
-      { x: 0, y: 0 },
-      { x: 0, y: -80 },
-      { x: 0, y: 0 },
-      { x: 0, y: 80 },
-      { x: 0, y: 0 },
-      { x: 0, y: -80 },
-      { x: 0, y: 0 },
-      { x: 0, y: 80 },
-      { x: 0, y: 0 },
-      { x: 0, y: -80 },
-      { x: 0, y: 0 },
-    ];
+    gsap.set(circles, { autoAlpha: 1, scale: 0 });
 
     // Animation timeline with motion path
     tl.to(circles, {
-      duration: 2,
+      duration: 0.5,
       autoAlpha: 1,
+      stagger: 0.1,
       scale: 1,
-      stagger: 0.2,
       ease: "linear",
-      motionPath: {
-        path: infinityPath,
-        curviness: 1,
-        autoRotate: false,
-      },
       repeat: -1,
-      yolo: true,
+      yoyo: true,
     });
 
     return () => {
@@ -56,18 +34,18 @@ const InfiniteScrollLoader = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center h-[80vh]">
-      <div className="flex justify-center items-center gap-6">
-        {[...Array(8)].map((_, index) => (
+    <div className="flex flex-col justify-center items-center h-[80vh] gap-5">
+      <div className="flex justify-start items-center gap-2">
+        {[...Array(7)].map((_, index) => (
           <div
             key={index}
             ref={(el) => (circlesRef.current[index] = el)}
-            className="circle w-8 h-8 rounded-full bg-white shadow-md flex justify-center items-center"
-            style={{ backgroundColor: "#F2544Bcc" }} // Set background color
+            className="circle w-5 h-5 rounded-full bg-white shadow-md flex justify-start items-center"
+            style={{ backgroundColor: "#F2544Bcc" }}
           ></div>
         ))}
       </div>
-      <div className="mt-28 text-7xl font-black text-[#f36760] z-10">
+      <div className="text-5xl font-black  text-[#F2544B] py-3 px-10 rounded-sm z-10">
         Loading...
       </div>
     </div>

@@ -47,7 +47,7 @@ const TailorYourFit: React.FC<TailorYourFitProps> = ({ onSizeReceived }) => {
       try {
         // Simulate an API call
         setTimeout(() => {
-          setLoading(false);
+          setLoading(true);
           onSizeReceived("XXL"); // Simulated response
         }, 4000);
       } catch (error) {
