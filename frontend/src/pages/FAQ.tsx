@@ -59,7 +59,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <div className="px-24 py-6 border-2 h-screen">
+    <div className="px-24 py-6 h-screen">
       <Header />
       <div className="mt-[1rem]">
         <div className="bg-white p-8">

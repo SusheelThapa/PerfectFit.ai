@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 
 const LandingPage = () => {
   return (
-    <div className="px-24 py-6 border-2 h-[100vh]">
+    <div className="px-24 py-6 h-screen">
       <Header />
       <Hero />
     </div>

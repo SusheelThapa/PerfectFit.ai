@@ -15,7 +15,7 @@ const TailorYourFitPage = () => {
   };
 
   return (
-    <div className="px-24 py-6 border-2 h-[100vh] bg-white">
+    <div className="px-24 py-6 h-screen">
       <Header />
       {size ? (
         <Size size={size} onFindAnotherFit={handleFindAnotherFit} />
