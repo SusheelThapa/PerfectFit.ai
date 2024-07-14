@@ -1,6 +1,7 @@
 import { TbClothesRack } from "react-icons/tb";
 
 import hero from "../assets/images/hero.png";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -19,10 +20,12 @@ const Hero = () => {
           hello to perfect fit every time.
         </p>
 
-        <button className="text-white text-xl mt-16 flex justify-center items-center gap-3 py-2 px-10 rounded-lg font-bold bg-[#F2544B] tracking-wider hover:bg-[#f8463d]">
-          Tailor your fit
-          <TbClothesRack size={35} />
-        </button>
+        <Link to="/tailor-your-fit">
+          <button className="text-white text-xl mt-16 flex justify-center items-center gap-3 py-2 px-10 rounded-lg font-bold bg-[#F2544B] tracking-wider hover:bg-[#f8463d]">
+            Tailor your fit
+            <TbClothesRack size={35} />
+          </button>
+        </Link>
       </div>
       <div>
         <img src={hero} alt="A man in black clothes" className="" />
