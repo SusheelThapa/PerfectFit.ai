@@ -48,7 +48,7 @@
 
 ## Demo
 
-Coming soon....
+https://github.com/user-attachments/assets/88f2b05c-cf36-4dcb-9f7f-b87d8224c373
 
 ## Installation
 
@@ -78,6 +78,12 @@ PerfectFit.ai addresses these challenges by leveraging aMindsDB for predictive m
 ## Dataset
 
 The dataset used for this project is sourced from [Kaggle](https://www.kaggle.com/datasets/tourist55/clothessizeprediction/data), specifically tailored for predicting clothing sizes. It includes relevant metrics and attributes necessary for training and validating the size prediction model.
+
+## How it Work?
+
+   <p align="center">
+      <img src="https://github.com/user-attachments/assets/d3adce5d-fb13-43d3-9a54-9120bb1d2964" alt="Upload Dataset" width="600">
+   </p>
 
 ## Clothing Size Conversion
 
