@@ -59,7 +59,7 @@ const Hero = () => {
           </button>
         </Link>
       </div>
-      <div>
+      <div className="w-5/6">
         <img
           ref={imageRef}
           src={hero}
